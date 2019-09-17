@@ -1,7 +1,7 @@
 # EC601-Mini-Project
 First Mini Project
 
-User stories
+User stories:
 
 1. Marketing Director of Venmo want to see the users feedback through specific tags
 
@@ -13,3 +13,6 @@ User stories
 
 5. The product manager of Wechat want to know users feedback to their new version feature
  
+Structure Graph:
+
+https://github.com/CarlZuo/EC601-Mini-Project/blob/master/EC601-Mini-Project.jpg
