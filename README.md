@@ -16,3 +16,7 @@ User stories:
 Structure Graph:
 
 https://github.com/CarlZuo/EC601-Mini-Project/blob/master/EC601-Mini-Project.jpg
+
+Twitter API:
+
+https://developer.twitter.com/en/docs/api-reference-index
