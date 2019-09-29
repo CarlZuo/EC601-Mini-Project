@@ -37,7 +37,7 @@ def sample_analyze_sentiment(text_content):
       #  )
     #)
     # Get sentiment for all sentences in the document
-    rtn = (response.document_sentiment.score,response.document_sentiment.magnitude)
+    rtn = response.document_sentiment.score
     #for sentence in response.sentences:
     #    rtn.append((sentence.sentiment.score,sentence.sentiment.magnitude))
         #print(u"Sentence text: {}".format(sentence.text.content))
