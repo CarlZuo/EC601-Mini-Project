@@ -1,5 +1,4 @@
 import tweepy
-import json
 
 def getTwitterFeeds(searchQuery, lang, twitter_numbers, r_type):
 	auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
