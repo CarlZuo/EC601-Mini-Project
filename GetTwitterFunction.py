@@ -17,21 +17,23 @@ def getTwitterFeeds(searchQuery, lang, twitter_numbers, r_type):
 	print ("...%s tweets downloaded so far" % (len(results)))
 
 	#write tweet objects to JSON
-	file = open('myResultsTweet.json', 'w') 
-	print ("Writing tweet objects to JSON please wait...")
+	file = open('myResultsTweet.txt', 'w') 
+	print ("Writing tweet objects to Text file please wait...")
 	i = 1
+	tweetList = []
 
 	for status in results:
 		#print each tweet to JSON
+		tweetList.append(status.text)
 		file.write(str(i) + ':')
-		file.write(json.dumps(status.text))
+		file.write(status.text)
 		file.write('\n')
 		i += 1
 
 	#close the file
 	print ("Done")
 	file.close()
-	return 
+	return tweetList
 
 if __name__ == '__main__':
-	getTwitterFeeds("#iphone", "en", 20, "recent")
+	getTwitterFeeds("iphone", "en", 100, "recent")
