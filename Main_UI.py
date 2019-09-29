@@ -59,7 +59,7 @@ class WinForm(QWidget):
 
 def analyze(txtin):
     
-    eles = getTwitterFeeds(txtin, "en", 10, "recent")
+    eles = getTwitterFeeds(txtin, "en", 100, "recent")
     sum = 0
     if len(eles) == 0:
       return 50
