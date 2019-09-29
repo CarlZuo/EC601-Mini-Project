@@ -1,6 +1,10 @@
 import sys
+import Google_Api
+import time
 import GetTwitterFunction
-import google_sample1
+from Google_Api import sample_analyze_sentiment
+from GetTwitterFunction import getTwitterFeeds
+
 from PyQt5.QtWidgets import QPushButton, QApplication, QWidget, QLineEdit, QLabel, QLCDNumber
 
 
@@ -8,7 +12,7 @@ class WinForm(QWidget):
     def __init__(self, parent=None):
         super(WinForm, self).__init__(parent)
         self.setGeometry(300, 300, 350, 350)
-        self.setWindowTitle('APP Name')
+        self.setWindowTitle('Sentiment Analysis')
         self.Run = QPushButton('Run', self)
         self.Run.setGeometry(250, 100, 80, 40)
         self.Run.setStyleSheet("background-color: green")
@@ -44,21 +48,31 @@ class WinForm(QWidget):
 
 
     def run(self):
-        if self.Inline.isEmpty() != 1:
+      
 
-            self.Inf.setText('Pleas waiting........')
-            analyze(self.Inline.Text())
-            self.Outline.display(99)
-            self.Inf.setText('Please type in something')
+        self.Inf.setText('Please waiting........')
+        time.sleep(0.5)
+        score = analyze(self.Inline.text())
+        self.Outline.display(score)
+        self.Inf.setText('Please type in something')
 
 
 def analyze(txtin):
-    eles = getTwitterFeed(txtin)
+    
+    eles = getTwitterFeeds(txtin, "en", 10, "recent")
     sum = 0
+    if len(eles) == 0:
+      return 50
+
+
     for ele in eles :
         sum = sum + sample_analyze_sentiment(ele)
-    rtn = int(sum / len(eles) * 10 + 50)
-    return rtn
+    score = int(sum / len(eles) * 100 + 50)
+    if score > 100:
+      score = 100
+    if score < 0:
+      score = 0
+    return score
 
 
 
